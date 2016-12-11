@@ -1,0 +1,23 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Set Script</title>
+    <style>
+      textarea {
+        width: 300px;
+        height: 300px;
+        resize: none;
+      }
+    </style>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <textarea id="script-textarea"></textarea>
+    <button id="button-save">Save</button>
+  </body>
+</html>
