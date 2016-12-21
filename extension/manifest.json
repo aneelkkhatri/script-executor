@@ -5,16 +5,20 @@
   "description": "This extension allows you to add script that will get executed on every page you open",
   "version": "0.0.1",
 
+  "background" : {
+    "persistent": true,
+    "scripts" : ["message-types.js","background.js"]
+  },
   "browser_action": {
     "default_icon": "icon.png",
-    "default_popup": "popup.html",
-    "default_title": "Set script"
+    // "default_popup": "popup.html",
+    "default_title": "Script Executor"
   },
   "content_scripts": [
     {
       "matches": ["http://*/*","https://*/*"],
       "css": [],
-      "js": ["main.js"]
+      "js": ["message-types.js","content-script-main.js"]
     }
   ],
   "icons": {
@@ -24,9 +28,11 @@
   },
   "permissions": [
     "storage",
-    "activeTab"
+    "activeTab",
+    "tabs",
+    "contextMenus",
+    "http://*/",
+    "https://*/"
   ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
-  // "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
-
 }
