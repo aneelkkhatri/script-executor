@@ -27,14 +27,14 @@ Extension = (function () {
     }, callback);
   };
   Extension.prototype.executeScriptFromURL = function (url, callback) {
-    XHRHelper.request({
-      url: url,
-      success: function(xhr) {
-        this.executeScript({
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    xhr.onload = function () {
+      this.executeScript({
           code: xhr.responseText
         }, callback);
-      }.bind(this)
-    });
+    }.bind(this);
+    xhr.send();
   };
   return new Extension();
 })();
