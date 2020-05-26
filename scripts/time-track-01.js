@@ -1,4 +1,6 @@
-
+/**
+ This script is adds time spent in the page to the title of the page
+*/
 var originalTitle = document.title;
 function renderTimeSpent() {
     t = timeSpent;
